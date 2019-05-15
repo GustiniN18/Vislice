@@ -43,13 +43,33 @@ class Igra:
                 delni += '_ '
         return delni 
 
-    def nepavilni_ugibi(self)
+    def nepravilni_ugibi(self):
+        return ' '.join(self.napacne_crke())
+
+    def ugibaj(self, crka):
+        crka = crka.upper()
+        if crka in self.crke:
+            return PONOVLJENA_CRKA
+        else: 
+            self.crke.append(crka)
+        if crka in self.geslo:
+            if self.zmaga():
+                return ZMAGA
+            else:
+                return PRAVILNA_CRKA
+        else:
+            if self.poraz():
+                return PORAZ
+            else: 
+                return NAPACNA_CRKA
 
 
 
 
-testno_geslo = "požrtvovalnost"
-testne_crke = ["a", "e", "o", "p"]
+
+
+testno_geslo = "POŽRTVOVALNOST"
+testne_crke = ["A", "E", "O", "P"]
 zmagovalne_crke = [x for x in testno_geslo]
 igra = Igra(testno_geslo, testne_crke)        
 print(igra.napacne_crke())
@@ -60,3 +80,11 @@ zmagana_igra = Igra(testno_geslo, zmagovalne_crke)
 print(zmagana_igra.zmaga())
 print(igra.poraz())
 print(igra.pravilni_del_gesla())
+print(igra.nepravilni_ugibi())
+poskus = igra.ugibaj("r")
+print(poskus)
+print(igra.pravilni_del_gesla())
+poskus = igra.ugibaj("X")
+print(poskus)
+print(igra.pravilni_del_gesla())
+print(igra.napacne_crke())
