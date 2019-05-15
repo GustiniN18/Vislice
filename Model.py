@@ -72,7 +72,7 @@ def nova_igra():
     return Igra(random.choice(bazen_besed))
 
 
-print(bazen_besed[:5])
+#print(bazen_besed[:5])
 
 #testno_geslo = "POŽRTVOVALNOST"
 #testne_crke = ["A", "E", "O", "P"]
